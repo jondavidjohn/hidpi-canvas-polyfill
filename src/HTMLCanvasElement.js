@@ -23,7 +23,7 @@
 							context.backingStorePixelRatio || 1;
 
 				ratio = (window.devicePixelRatio || 1) / backingStore;
-				
+
 				if (ratio > 1) {
 					this.style.height = this.height + 'px';
 					this.style.width = this.width + 'px';

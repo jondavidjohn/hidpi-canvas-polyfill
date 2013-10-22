@@ -40,43 +40,42 @@ module.exports = function (grunt) {
 				cwd: 'dist',
 				src: ['*.js'],
 				dest: 'dist/'
-			}
-		},
-
-		dist: {
-			options: {
-				archive: 'dist/hidpi-canvas-<%= pkg.version %>.zip',
-				level: 9
 			},
-			files: [
-				{
-					src: [
-						'LICENSE.txt',
-						'README.md',
-						'CHANGELOG'
-					]
+			dist: {
+				options: {
+					archive: 'dist/hidpi-canvas-<%= pkg.version %>.zip',
+					level: 9
 				},
-				{
-					expand: true,
-					cwd: 'dist/',
-					src: [
-						'*.js',
-						'*.js.gz'
-					]
-				}
-			]
+				files: [
+					{
+						src: [
+							'LICENSE.txt',
+							'README.md',
+							'CHANGELOG'
+						]
+					},
+					{
+						expand: true,
+						cwd: 'dist/',
+						src: [
+							'*.js',
+							'*.js.gz'
+						]
+					}
+				]
+			},
 		},
 
 		qunit: {
 			files: [
-				'test/hidpi-canvas.html'
+				'test/CanvasRenderingContext2D.html',
+				'test/HTMLCanvasElement.html'
 			]
 		}
 	});
 
 	// Load Package Tasks
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-compress');
