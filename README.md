@@ -1,4 +1,6 @@
-# HiDPI Canvas Polyfill - (Currently pre-release, Do not use)
+# HiDPI Canvas Polyfill
+
+**(pre-release)**
 
 This is a drop-in polyfill to scale canvas appropriately to maintain sharpness
 in browsers that currently do not provide the appropriately scaled backing
@@ -13,10 +15,12 @@ without having to modify any of your canvas code.
 
 To use this module, simply include it before any of your canvas code
 
-    ...
-    <script src=".../hidpi-canvas.min.js"></script>
-    <script src=".../your-canvas-stuff.js"></script>
-    ...
+```html
+  ...
+  <script src=".../hidpi-canvas.min.js"></script>
+  <script src=".../your-canvas-stuff.js"></script>
+  ...
+```
 
 ## TODO
 
