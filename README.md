@@ -30,5 +30,5 @@ To use this module, simply include it before any of your canvas code
 
 ## Development
 
-See [CONTRIBUTING.md](https://github.com/jondavidjohn/hidpi-canvas-polyfill/blob/develop/README.md)
+See [CONTRIBUTING.md](https://github.com/jondavidjohn/hidpi-canvas-polyfill/blob/develop/CONTRIBUTING.md)
 
