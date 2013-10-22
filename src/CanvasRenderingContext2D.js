@@ -19,11 +19,7 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args = args.map(function(a) { return a * ratio; });
-			}
-
-			return _super.apply(this, args);
+			return _super.apply(this, args.map(function(a) { return a * ratio; }));
 		};
 	})(prototype.fillRect);
 
@@ -32,11 +28,7 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args = args.map(function(a) { return a * ratio; });
-			}
-
-			return _super.apply(this, args);
+			return _super.apply(this, args.map(function(a) { return a * ratio; }));
 		};
 	})(prototype.clearRect);
 
@@ -45,11 +37,7 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args = args.map(function(a) { return a * ratio; });
-			}
-
-			return _super.apply(this, args);
+			return _super.apply(this, args.map(function(a) { return a * ratio; }));
 		};
 	})(prototype.strokeRect);
 
@@ -61,11 +49,7 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args = args.map(function(a) { return a * ratio; });
-			}
-
-			return _super.apply(this, args);
+			return _super.apply(this, args.map(function(a) { return a * ratio; }));
 		};
 	})(prototype.moveTo);
 
@@ -74,11 +58,7 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args = args.map(function(a) { return a * ratio; });
-			}
-
-			return _super.apply(this, args);
+			return _super.apply(this, args.map(function(a) { return a * ratio; }));
 		};
 	})(prototype.lineTo);
 
@@ -90,11 +70,9 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args[0] *= ratio; // x
-				args[1] *= ratio; // y
-				args[2] *= ratio; // radius
-			}
+			args[0] *= ratio; // x
+			args[1] *= ratio; // y
+			args[2] *= ratio; // radius
 
 			return _super.apply(this, args);
 		};
@@ -108,11 +86,7 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args = args.map(function(a) { return a * ratio; });
-			}
-
-			return _super.apply(this, args);
+			return _super.apply(this, args.map(function(a) { return a * ratio; }));
 		};
 	})(prototype.bezierCurveTo);
 
@@ -124,14 +98,12 @@
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
 
-			if (ratio > 1) {
-				args[1] *= ratio; // x
-				args[2] *= ratio; // y
+			args[1] *= ratio; // x
+			args[2] *= ratio; // y
 
-				this.font = this.font.replace(/(\d+)(px)/g, function(w, m, u) {
-					return (m * 2) + u;
-				});
-			}
+			this.font = this.font.replace(/(\d+)(px)/g, function(w, m, u) {
+				return (m * 2) + u;
+			});
 
 			return _super.apply(this, args);
 		};
