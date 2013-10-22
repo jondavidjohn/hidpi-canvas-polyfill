@@ -3,11 +3,11 @@
   "description": "A JavaScript module to polyfill consistent and automatic HiDPI Canvas support.",
   "version": "0.0.1-pre",
   "license": "Apache 2.0",
-  "homepage": "",
-  "bugs": "",
+  "homepage": "https://github.com/jondavidjohn/hidpi-canvas-polyfill",
+  "bugs": "https://github.com/jondavidjohn/hidpi-canvas-polyfill/issues",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:jondavidjohn/hidpi-canvas-polyfill.git"
   },
   "author": "Jonathan D. Johnson (http://jondavidjohn.com)",
   "devDependencies": {
