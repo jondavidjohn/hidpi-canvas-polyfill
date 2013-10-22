@@ -11,7 +11,14 @@ module.exports = function (grunt) {
 
 		concat: {
 			options: {
-				banner: '/* Something */',
+				banner:   '/**\n'
+						+ ' * HiDPI Canvas Polyfill (<%= pkg.version %>)\n'
+						+ ' *\n'
+						+ ' * Author: <%= pkg.author %>\n'
+						+ ' * Homepage: <%= pkg.homepage %>\n'
+						+ ' * Issue Tracker: <%= pkg.bugs %>\n'
+						+ ' * License: <%= pkg.license %>\n'
+						+ '*/\n',
 				separator: ';'
 			},
 			dist: {

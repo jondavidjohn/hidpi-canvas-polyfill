@@ -1,7 +1,7 @@
 {
   "name": "hidpi-canvas",
   "description": "A JavaScript module to polyfill consistent and automatic HiDPI Canvas support.",
-  "version": "0.0.1",
+  "version": "0.0.1-pre",
   "license": "Apache 2.0",
   "homepage": "",
   "bugs": "",
