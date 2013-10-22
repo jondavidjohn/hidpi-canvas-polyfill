@@ -101,8 +101,8 @@
 			args[1] *= ratio; // x
 			args[2] *= ratio; // y
 
-			this.font = this.font.replace(/(\d+)(px)/g, function(w, m, u) {
-				return (m * 2) + u;
+			this.font = this.font.replace(/(\d+)(px|em|rem|pt)/g, function(w, m, u) {
+				return (m * ratio) + u;
 			});
 
 			return _super.apply(this, args);
