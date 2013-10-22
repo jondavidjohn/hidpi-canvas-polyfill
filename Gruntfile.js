@@ -78,6 +78,11 @@ module.exports = function (grunt) {
 				'test/CanvasRenderingContext2D.html',
 				'test/HTMLCanvasElement.html'
 			]
+		},
+
+		watch: {
+			files: ['<%= concat.dist.src %>'],
+			tasks: ['clean', 'concat:dist']
 		}
 	});
 

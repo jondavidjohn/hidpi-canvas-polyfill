@@ -27,3 +27,8 @@ To use this module, simply include it before any of your canvas code
   - More Complete context function converage
   - Figure out how to test this
   - Decide how to handle image drawing? (likely, don't handle it at all)
+
+## Development
+
+See [CONTRIBUTING.md](https://github.com/jondavidjohn/hidpi-canvas-polyfill/blob/develop/README.md)
+
