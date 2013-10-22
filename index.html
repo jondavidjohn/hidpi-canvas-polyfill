@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HiDPI Canvas Example</title>
+	<style>
+		#canvas {
+			background-color: whiteSmoke;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" height="600" width="600"></canvas>
+	<script src="dist/hidpi-canvas.js"></script>
+	<script>
+		(function() {
+			var canvas = document.getElementById('canvas'),
+				ctx = canvas.getContext('2d');
+
+			// Rectangle
+			ctx.beginPath();
+			ctx.fillRect(425,25,100,100);
+			ctx.clearRect(445,45,60,60);
+			ctx.strokeRect(440,50,50,50);
+			ctx.closePath();
+
+			// Triangle
+			ctx.beginPath();
+			ctx.moveTo(175,150);
+			ctx.lineTo(200,175);
+			ctx.lineTo(200,125);
+			ctx.fill();
+			ctx.closePath();
+
+			// Arcs
+			ctx.beginPath();
+			for(var i=0;i<4;i++){
+				for(var j=0;j<3;j++){
+ctx.beginPath();
+					var x              = 225+j*50;               // x coordinate
+					var y              = 225+i*50;               // y coordinate
+					var radius         = 20;                    // Arc radius
+					var startAngle     = 0;                     // Starting point on circle
+					var endAngle       = Math.PI+(Math.PI*j)/2; // End point on circle
+					var anticlockwise  = i%2==0 ? false : true; // clockwise or anticlockwise
+
+					ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+					if (i>1){
+						ctx.fill();
+					} else {
+						ctx.stroke();
+					}
+				}
+			}
+			ctx.closePath();
+
+			// Quadradic Curves
+			ctx.beginPath();
+			ctx.moveTo(75,40);
+			ctx.bezierCurveTo(75,37,70,25,50,25);
+			ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+			ctx.bezierCurveTo(20,80,40,102,75,120);
+			ctx.bezierCurveTo(110,102,130,80,130,62.5);
+			ctx.bezierCurveTo(130,62.5,130,25,100,25);
+			ctx.bezierCurveTo(85,25,75,37,75,40);
+			ctx.fill();
+			ctx.closePath();
+
+			ctx.font="20px Arial";
+			ctx.fillText("Am I Sharp?",10,300);
+		 })();
+	</script>
+</body>
