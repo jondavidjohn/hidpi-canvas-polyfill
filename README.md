@@ -1,5 +1,7 @@
 # HiDPI Canvas Polyfill
 
+**[Check Releases page for most recent version download](https://github.com/jondavidjohn/hidpi-canvas-polyfill/releases)**
+
 This is a drop-in polyfill to scale canvas appropriately to maintain sharpness
 in browsers that currently do not provide the appropriately scaled backing
 store to do this automatically.
