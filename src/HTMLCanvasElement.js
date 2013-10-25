@@ -16,7 +16,7 @@
 				var backingStore, ratio, v;
 
 				backingStore = context.backingStorePixelRatio ||
-							context.webkitBackingtorePixelRatio ||
+							context.webkitBackingStorePixelRatio ||
 							context.mozBackingStorePixelRatio ||
 							context.msBackingStorePixelRatio ||
 							context.oBackingStorePixelRatio ||
