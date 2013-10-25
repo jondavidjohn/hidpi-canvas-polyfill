@@ -1,19 +1,12 @@
 (function(prototype) {
 
-	var vendorPrefixes = [
-			'webkit',
-			'moz',
-			'ms',
-			'o'
-		];
-
 	prototype.getContext = (function(_super) {
 		return function(type) {
 			context = _super.call(this, type);
 
 			if (type === '2d') {
 
-				var backingStore, ratio, v;
+				var backingStore, ratio;
 
 				backingStore = context.backingStorePixelRatio ||
 							context.webkitBackingStorePixelRatio ||
