@@ -59,6 +59,8 @@ Try your best to follow the present code formatting and patterns in place.
 
 ### Pull Requests
 
+**Make sure to send pull requests to develop.**
+
 Good Pull Requests include:
 
   - A clear explaination of the problem (or enhancement)
