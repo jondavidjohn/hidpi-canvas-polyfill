@@ -1,6 +1,8 @@
 (function(prototype) {
 
-	var getPixelRatio = function(context) {
+	var func, value,
+
+		getPixelRatio = function(context) {
 			var backingStore = context.backingStorePixelRatio ||
 						context.webkitBackingtorePixelRatio ||
 						context.mozBackingStorePixelRatio ||
@@ -10,6 +12,15 @@
 
 			return (window.devicePixelRatio || 1) / backingStore;
 		},
+
+		forEach = function(obj, func) {
+			for (var p in obj) {
+				if (obj.hasOwnProperty(p)) {
+					func(obj[p], p);
+				}
+			}
+		},
+
 		ratioArgs = {
 			'fillRect': 'all',
 			'clearRect': 'all',
@@ -24,32 +35,30 @@
 			'quadraticCurveTo': 'all',
 			'rect': 'all',
 			'translate': 'all'
-		},
-		func, value;
+		};
 
-		for (func in ratioArgs) {
-			if (ratioArgs.hasOwnProperty(func)) {
-				(function(value) {
-					prototype[func] = (function(_super) {
-						return function() {
-							var ratio = getPixelRatio(this), i, len,
-								args = Array.prototype.slice.call(arguments);
+	forEach(ratioArgs, function(value, key) {
+		prototype[func] = (function(_super) {
+			return function() {
+				var i, len,
+					ratio = getPixelRatio(this),
+					args = Array.prototype.slice.call(arguments);
 
-							if (value === 'all') {
-								return _super.apply(this, args.map(function(a) { return a * ratio; }));
-							}
-							else if (Object.prototype.toString.call(value) == '[object Array]') {
-								for (i = 0, len = value.length; i < len; i++) {
-									args[value[i]] *= ratio;
-								}
-								return _super.apply(this, args);
-							}
-						};
-					})(prototype[func]);
-				})(ratioArgs[func]);
-			}
-		}
+				if (value === 'all') {
+					args = args.map(function(a) {
+						return a * ratio;
+					});
+				}
+				else if (Array.isArray(value)) {
+					for (i = 0, len = value.length; i < len; i++) {
+						args[value[i]] *= ratio;
+					}
+				}
 
+				return _super.apply(this, args);
+			};
+		})(prototype[func]);
+	});
 
 	// Text
 	//
@@ -61,9 +70,12 @@
 			args[1] *= ratio; // x
 			args[2] *= ratio; // y
 
-			this.font = this.font.replace(/(\d+)(px|em|rem|pt)/g, function(w, m, u) {
-				return (m * ratio) + u;
-			});
+			this.font = this.font.replace(
+				/(\d+)(px|em|rem|pt)/g,
+				function(w, m, u) {
+					return (m * ratio) + u;
+				}
+			);
 
 			return _super.apply(this, args);
 		};
@@ -77,9 +89,12 @@
 			args[1] *= ratio; // x
 			args[2] *= ratio; // y
 
-			this.font = this.font.replace(/(\d+)(px|em|rem|pt)/g, function(w, m, u) {
-				return (m * ratio) + u;
-			});
+			this.font = this.font.replace(
+				/(\d+)(px|em|rem|pt)/g,
+				function(w, m, u) {
+					return (m * ratio) + u;
+				}
+			);
 
 			return _super.apply(this, args);
 		};
