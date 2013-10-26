@@ -1,2 +1,6 @@
+= 1.0.1
+  * Fixed Bug detecting the webkit backingStore
+  * General code cleanup
+
 = 1.0.0
   * Initial Release
