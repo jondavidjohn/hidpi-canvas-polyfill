@@ -4,7 +4,7 @@
 
 		getPixelRatio = function(context) {
 			var backingStore = context.backingStorePixelRatio ||
-						context.webkitBackingtorePixelRatio ||
+						context.webkitBackingStorePixelRatio ||
 						context.mozBackingStorePixelRatio ||
 						context.msBackingStorePixelRatio ||
 						context.oBackingStorePixelRatio ||
@@ -38,7 +38,7 @@
 		};
 
 	forEach(ratioArgs, function(value, key) {
-		prototype[func] = (function(_super) {
+		prototype[key] = (function(_super) {
 			return function() {
 				var i, len,
 					ratio = getPixelRatio(this),
@@ -57,7 +57,7 @@
 
 				return _super.apply(this, args);
 			};
-		})(prototype[func]);
+		})(prototype[key]);
 	});
 
 	// Text
