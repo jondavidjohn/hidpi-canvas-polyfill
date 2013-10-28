@@ -71,6 +71,5 @@ Good Pull Requests include:
 
 A few things it currently lacks that I'd like to see improved
 
-  - Better touch support
-  - Responsive interactivity
-  - Better handling of a large number of "bubbles"
+  - More complete canvas context method coverage.
+  - Figure out how to test this stuff.
