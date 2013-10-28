@@ -37,7 +37,7 @@ var getPixelRatio = function(context) {
 
 ## Usage
 
-This repository does not contained the compiled and minified releases
+This repository does not contain the compiled and minified releases
 
 **[Check the releases page for the most recent version to download](https://github.com/jondavidjohn/hidpi-canvas-polyfill/releases)**
 
