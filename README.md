@@ -1,7 +1,5 @@
 # HiDPI Canvas Polyfill
 
-**[Check Releases page for most recent version download](https://github.com/jondavidjohn/hidpi-canvas-polyfill/releases)**
-
 This is a drop-in polyfill to scale canvas appropriately to maintain sharpness
 in browsers that currently do not provide the appropriately scaled backing
 store to do this automatically.
@@ -39,6 +37,10 @@ var getPixelRatio = function(context) {
 
 ## Usage
 
+This repository does not contain the compiled and minified releases
+
+**[Check the releases page for the most recent version to download](https://github.com/jondavidjohn/hidpi-canvas-polyfill/releases)**
+
 To use this module, simply include it before any of your canvas code
 
 ```html
@@ -50,7 +52,7 @@ To use this module, simply include it before any of your canvas code
 
 ## TODO
 
-  - More Complete context function converage
+  - More Complete context function coverage
   - Figure out how to write tests for this type of thing
 
 ## Development
