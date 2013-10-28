@@ -50,7 +50,7 @@ To use this module, simply include it before any of your canvas code
 
 ## TODO
 
-  - More Complete context function converage
+  - More Complete context function coverage
   - Figure out how to write tests for this type of thing
 
 ## Development
