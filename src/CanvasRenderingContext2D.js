@@ -34,7 +34,8 @@
 			'isPointinStroke': 'all',
 			'quadraticCurveTo': 'all',
 			'rect': 'all',
-			'translate': 'all'
+			'translate': 'all',
+			'createRadialGradient': 'all'
 		};
 
 	forEach(ratioArgs, function(value, key) {
