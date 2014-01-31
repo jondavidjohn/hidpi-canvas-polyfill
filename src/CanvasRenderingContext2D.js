@@ -34,7 +34,8 @@
 			'isPointinStroke': 'all',
 			'quadraticCurveTo': 'all',
 			'rect': 'all',
-			'translate': 'all'
+			'translate': 'all',
+			'createRadialGradient': 'all'
 		};
 
 	forEach(ratioArgs, function(value, key) {
@@ -77,7 +78,14 @@
 				}
 			);
 
-			return _super.apply(this, args);
+			_super.apply(this, args);
+
+			this.font = this.font.replace(
+				/(\d+)(px|em|rem|pt)/g,
+				function(w, m, u) {
+					return (m / ratio) + u;
+				}
+			);
 		};
 	})(prototype.fillText);
 
@@ -96,7 +104,14 @@
 				}
 			);
 
-			return _super.apply(this, args);
+			_super.apply(this, args);
+
+			this.font = this.font.replace(
+				/(\d+)(px|em|rem|pt)/g,
+				function(w, m, u) {
+					return (m / ratio) + u;
+				}
+			);
 		};
 	})(prototype.strokeText);
 })(CanvasRenderingContext2D.prototype);
