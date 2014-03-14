@@ -1,3 +1,6 @@
+= 1.0.3
+  * Add bower support
+
 = 1.0.2
   * Fix bug with font scaling with multiple text calls (Issue #4)
   * Add a few tests
