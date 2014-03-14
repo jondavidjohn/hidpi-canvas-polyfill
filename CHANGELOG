@@ -1,3 +1,7 @@
+= 1.0.3
+  * Add bower support
+  * Add built distribution files to the repository
+
 = 1.0.2
   * Fix bug with font scaling with multiple text calls (Issue #4)
   * Add a few tests

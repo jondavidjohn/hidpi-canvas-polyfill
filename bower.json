@@ -1,0 +1,24 @@
+{
+  "name": "hidpi-canvas",
+  "version": "1.0.3",
+  "homepage": "https://github.com/jondavidjohn/hidpi-canvas-polyfill",
+  "authors": [
+    "Jonathan Johnson <jon@crowdfavorite.com>"
+  ],
+  "description": "A JavaScript drop-in module to polyfill consistent and automatic HiDPI Canvas support.",
+  "keywords": [
+    "canvas",
+    "retina",
+    "hidpi",
+    "polyfill"
+  ],
+  "license": "Apache 2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test",
+    "tests"
+  ]
+}
