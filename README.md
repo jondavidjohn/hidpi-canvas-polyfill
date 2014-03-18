@@ -37,18 +37,20 @@ var getPixelRatio = function(context) {
 
 ## Usage
 
-This repository does not contain the compiled and minified releases
-
-**[Check the releases page for the most recent version to download](https://github.com/jondavidjohn/hidpi-canvas-polyfill/releases)**
-
 To use this module, simply include it before any of your canvas code
 
 ```html
   ...
-  <script src=".../hidpi-canvas.min.js"></script>
+  <script src=".../dist/hidpi-canvas.min.js"></script>
   <script src=".../your-canvas-stuff.js"></script>
   ...
 ```
+
+### Bower
+
+This module is also installable via [bower](http://bower.io/)
+
+    bower install hidpi-canvas
 
 ## TODO
 
