@@ -43,7 +43,8 @@
 			'quadraticCurveTo': 'all',
 			'rect': 'all',
 			'translate': 'all',
-			'createRadialGradient': 'all'
+			'createRadialGradient': 'all',
+			'createLinearGradient': 'all'
 		};
 
 	forEach(ratioArgs, function(value, key) {
