@@ -1,3 +1,11 @@
+/**
+ * HiDPI Canvas Polyfill (1.0.4)
+ *
+ * Author: Jonathan D. Johnson (http://jondavidjohn.com)
+ * Homepage: https://github.com/jondavidjohn/hidpi-canvas-polyfill
+ * Issue Tracker: https://github.com/jondavidjohn/hidpi-canvas-polyfill/issues
+ * License: Apache 2.0
+*/
 (function(prototype) {
 
 	var func, value,
@@ -116,3 +124,32 @@
 		};
 	})(prototype.strokeText);
 })(CanvasRenderingContext2D.prototype);
+;(function(prototype) {
+	prototype.getContext = (function(_super) {
+		return function(type) {
+			var backingStore, ratio,
+				context = _super.call(this, type);
+
+			if (type === '2d') {
+
+				backingStore = context.backingStorePixelRatio ||
+							context.webkitBackingStorePixelRatio ||
+							context.mozBackingStorePixelRatio ||
+							context.msBackingStorePixelRatio ||
+							context.oBackingStorePixelRatio ||
+							context.backingStorePixelRatio || 1;
+
+				ratio = (window.devicePixelRatio || 1) / backingStore;
+
+				if (ratio > 1) {
+					this.style.height = this.height + 'px';
+					this.style.width = this.width + 'px';
+					this.width *= ratio;
+					this.height *= ratio;
+				}
+			}
+
+			return context;
+		};
+	})(prototype.getContext);
+})(HTMLCanvasElement.prototype);
