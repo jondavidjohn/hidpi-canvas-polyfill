@@ -115,4 +115,55 @@
 			);
 		};
 	})(prototype.strokeText);
+
+	// Image
+	//
+	prototype.drawImage2x = (function(_super) {
+		return function() {
+			var ratio = getPixelRatio(this),
+				args = Array.prototype.slice.call(arguments);
+			
+			var sizeRatio = ratio / 2;
+			
+			var newArgs = args;
+			if (args.length == 3) {
+				// img, x, y
+				newArgs = [args[0], args[1]*ratio, args[2]*ratio,
+					args[0].width * sizeRatio, args[0].height * sizeRatio];
+			} else if (args.length == 5) {
+				// img, x, y, w, h
+				newArgs = [args[0], args[1]*sizeRatio, args[2]*sizeRatio,
+					args[3] / 2, args[4] / 2];
+			} else if (args.length == 9) {
+				// img, sx, sy, sw, sh, x, y, w, h
+				newArgs = [args[0], args[1], args[2], args[3], args[4],
+					args[5]*ratio, args[6]*ratio, args[7]*sizeRatio, args[8]*sizeRatio];
+			}
+			
+			_super.apply(this, newArgs);
+		};
+	})(prototype.drawImage);
+	prototype.drawImage = (function(_super) {
+		return function() {
+			var ratio = getPixelRatio(this),
+				args = Array.prototype.slice.call(arguments);
+			
+			var newArgs = args;
+			if (args.length == 3) {
+				// img, x, y
+				newArgs = [args[0], args[1]*ratio, args[2]*ratio,
+					args[0].width*ratio, args[0].height*ratio];
+			} else if (args.length == 5) {
+				// img, x, y, w, h
+				newArgs = [args[0], args[1]*ratio, args[2]*ratio,
+					args[3]*ratio, args[4]*ratio];
+			} else if (args.length == 9) {
+				// img, sx, sy, sw, sh, x, y, w, h
+				newArgs = [args[0], args[1], args[2], args[3], args[4],
+					args[5]*ratio, args[6]*ratio, args[7]*ratio, args[8]*ratio];
+			}
+			
+			_super.apply(this, newArgs);
+		};
+	})(prototype.drawImage);
 })(CanvasRenderingContext2D.prototype);
