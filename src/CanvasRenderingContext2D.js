@@ -129,11 +129,11 @@
 			if (args.length == 3) {
 				// img, x, y
 				newArgs = [args[0], args[1]*ratio, args[2]*ratio,
-					args[0].width * sizeRatio, args[0].height * sizeRatio];
+					args[0].width*sizeRatio, args[0].height*sizeRatio];
 			} else if (args.length == 5) {
 				// img, x, y, w, h
-				newArgs = [args[0], args[1]*sizeRatio, args[2]*sizeRatio,
-					args[3] / 2, args[4] / 2];
+				newArgs = [args[0], args[1]*ratio, args[2]*ratio,
+					args[3]*sizeRatio, args[4]*sizeRatio];
 			} else if (args.length == 9) {
 				// img, sx, sy, sw, sh, x, y, w, h
 				newArgs = [args[0], args[1], args[2], args[3], args[4],
