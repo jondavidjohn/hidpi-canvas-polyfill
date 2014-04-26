@@ -17,9 +17,9 @@ Some things you should be familiar with before getting started
 
 ## Development
 
-Once you have NPM and Grunt installed, clone the repository and install all dependancies
+Once you have NPM and Grunt installed, clone the repository (with `--recursive` to also clone all submodules) and install all dependencies
 
-    git clone git@.....hidpi-canvas-polyfill.git
+    git clone git@.....hidpi-canvas-polyfill.git --recursive
     cd hidpi-canvas-polyfill
     npm install
 
