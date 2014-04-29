@@ -12,6 +12,7 @@
     "hidpi",
     "polyfill"
   ],
+  "main": "dist/hidpi-canvas.js",
   "license": "Apache 2.0",
   "ignore": [
     "**/.*",
