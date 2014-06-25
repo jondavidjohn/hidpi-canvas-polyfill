@@ -1,5 +1,5 @@
 /**
- * HiDPI Canvas Polyfill (1.0.4)
+ * HiDPI Canvas Polyfill (1.0.5)
  *
  * Author: Jonathan D. Johnson (http://jondavidjohn.com)
  * Homepage: https://github.com/jondavidjohn/hidpi-canvas-polyfill

@@ -1,6 +1,6 @@
 {
   "name": "hidpi-canvas",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://github.com/jondavidjohn/hidpi-canvas-polyfill",
   "authors": [
     "Jonathan Johnson <jon@crowdfavorite.com>"
