@@ -1,3 +1,7 @@
+= 1.0.5
+  * Correct bower file with "main" entry
+  * Add `createLinearGradient` support
+
 = 1.0.3
   * Add bower support
   * Add built distribution files to the repository
