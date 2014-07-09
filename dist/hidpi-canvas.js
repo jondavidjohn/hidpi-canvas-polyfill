@@ -1,5 +1,5 @@
 /**
- * HiDPI Canvas Polyfill (1.0.5)
+ * HiDPI Canvas Polyfill (1.0.6)
  *
  * Author: Jonathan D. Johnson (http://jondavidjohn.com)
  * Homepage: https://github.com/jondavidjohn/hidpi-canvas-polyfill
@@ -54,6 +54,8 @@
 					ratio = getPixelRatio(this),
 					args = Array.prototype.slice.call(arguments);
 
+				if (ratio === 1) return _super.apply(this, args);
+
 				if (value === 'all') {
 					args = args.map(function(a) {
 						return a * ratio;
@@ -76,6 +78,8 @@
 		return function() {
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
+
+			if (ratio === 1) return _super.apply(this, args);
 
 			args[1] *= ratio; // x
 			args[2] *= ratio; // y
@@ -102,6 +106,8 @@
 		return function() {
 			var ratio = getPixelRatio(this),
 				args = Array.prototype.slice.call(arguments);
+
+			if (ratio === 1) return _super.apply(this, args);
 
 			args[1] *= ratio; // x
 			args[2] *= ratio; // y
