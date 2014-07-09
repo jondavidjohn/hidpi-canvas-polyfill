@@ -1,8 +1,6 @@
 (function(prototype) {
 
-	var func, value,
-
-		getPixelRatio = function(context) {
+	var pixelRatio = (function(context) {
 			var backingStore = context.backingStorePixelRatio ||
 						context.webkitBackingStorePixelRatio ||
 						context.mozBackingStorePixelRatio ||
@@ -11,7 +9,7 @@
 						context.backingStorePixelRatio || 1;
 
 			return (window.devicePixelRatio || 1) / backingStore;
-		},
+		})(prototype),
 
 		forEach = function(obj, func) {
 			for (var p in obj) {
@@ -39,23 +37,22 @@
 			'createLinearGradient': 'all'
 		};
 
+	if (pixelRatio === 1) return;
+
 	forEach(ratioArgs, function(value, key) {
 		prototype[key] = (function(_super) {
 			return function() {
 				var i, len,
-					ratio = getPixelRatio(this),
 					args = Array.prototype.slice.call(arguments);
-
-				if (ratio === 1) return _super.apply(this, args);
 
 				if (value === 'all') {
 					args = args.map(function(a) {
-						return a * ratio;
+						return a * pixelRatio;
 					});
 				}
 				else if (Array.isArray(value)) {
 					for (i = 0, len = value.length; i < len; i++) {
-						args[value[i]] *= ratio;
+						args[value[i]] *= pixelRatio;
 					}
 				}
 
@@ -68,18 +65,15 @@
 	//
 	prototype.fillText = (function(_super) {
 		return function() {
-			var ratio = getPixelRatio(this),
-				args = Array.prototype.slice.call(arguments);
+			var args = Array.prototype.slice.call(arguments);
 
-			if (ratio === 1) return _super.apply(this, args);
-
-			args[1] *= ratio; // x
-			args[2] *= ratio; // y
+			args[1] *= pixelRatio; // x
+			args[2] *= pixelRatio; // y
 
 			this.font = this.font.replace(
 				/(\d+)(px|em|rem|pt)/g,
 				function(w, m, u) {
-					return (m * ratio) + u;
+					return (m * pixelRatio) + u;
 				}
 			);
 
@@ -88,7 +82,7 @@
 			this.font = this.font.replace(
 				/(\d+)(px|em|rem|pt)/g,
 				function(w, m, u) {
-					return (m / ratio) + u;
+					return (m / pixelRatio) + u;
 				}
 			);
 		};
@@ -96,18 +90,15 @@
 
 	prototype.strokeText = (function(_super) {
 		return function() {
-			var ratio = getPixelRatio(this),
-				args = Array.prototype.slice.call(arguments);
+			var args = Array.prototype.slice.call(arguments);
 
-			if (ratio === 1) return _super.apply(this, args);
-
-			args[1] *= ratio; // x
-			args[2] *= ratio; // y
+			args[1] *= pixelRatio; // x
+			args[2] *= pixelRatio; // y
 
 			this.font = this.font.replace(
 				/(\d+)(px|em|rem|pt)/g,
 				function(w, m, u) {
-					return (m * ratio) + u;
+					return (m * pixelRatio) + u;
 				}
 			);
 
@@ -116,7 +107,7 @@
 			this.font = this.font.replace(
 				/(\d+)(px|em|rem|pt)/g,
 				function(w, m, u) {
-					return (m / ratio) + u;
+					return (m / pixelRatio) + u;
 				}
 			);
 		};
