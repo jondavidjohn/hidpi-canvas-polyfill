@@ -1,3 +1,6 @@
+= 1.0.6
+  * Performance improvement, early bail if pixel ratio is 1 (#13)
+
 = 1.0.5
   * Correct bower file with "main" entry
   * Add `createLinearGradient` support
