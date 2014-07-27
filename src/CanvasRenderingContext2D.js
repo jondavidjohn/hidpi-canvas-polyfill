@@ -62,12 +62,13 @@
 	});
 
 	 // Stroke lineWidth adjustment
-	 prototype.stroke = (function(_super) {
-		var args = Array.prototype.slice.call(arguments);
-		this.lineWidth *= pixelRatio;
-		_super.apply(this, args);
-		this.lineWidth /= pixelRatio;
-	 })(prototype.stroke);
+	prototype.stroke = (function(_super) {
+		return function() {
+			this.lineWidth *= pixelRatio;
+			_super.apply(this, arguments);
+			this.lineWidth /= pixelRatio;
+		};
+	})(prototype.stroke);
 
 	// Text
 	//
