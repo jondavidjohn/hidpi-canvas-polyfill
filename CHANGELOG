@@ -1,4 +1,7 @@
-= 1.0.8
+= 1.0.9
+  * True fix for issue with lineWidth handling in stroke (#14)
+
+= 1.0.8 (broken)
   * Fix issue with lineWidth handling in stroke (#14)
 
 = 1.0.7

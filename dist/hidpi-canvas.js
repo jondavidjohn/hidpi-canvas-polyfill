@@ -1,5 +1,5 @@
 /**
- * HiDPI Canvas Polyfill (1.0.8)
+ * HiDPI Canvas Polyfill (1.0.9)
  *
  * Author: Jonathan D. Johnson (http://jondavidjohn.com)
  * Homepage: https://github.com/jondavidjohn/hidpi-canvas-polyfill
@@ -70,12 +70,13 @@
 	});
 
 	 // Stroke lineWidth adjustment
-	 prototype.stroke = (function(_super) {
-		var args = Array.prototype.slice.call(arguments);
-		this.lineWidth *= pixelRatio;
-		_super.apply(this, args);
-		this.lineWidth /= pixelRatio;
-	 })(prototype.stroke);
+	prototype.stroke = (function(_super) {
+		return function() {
+			this.lineWidth *= pixelRatio;
+			_super.apply(this, arguments);
+			this.lineWidth /= pixelRatio;
+		};
+	})(prototype.stroke);
 
 	// Text
 	//
