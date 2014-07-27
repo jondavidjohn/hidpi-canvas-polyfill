@@ -61,6 +61,14 @@
 		})(prototype[key]);
 	});
 
+	 // Stroke lineWidth adjustment
+	 prototype.stroke = (function(_super) {
+		var args = Array.prototype.slice.call(arguments);
+		this.lineWidth *= pixelRatio;
+		_super.apply(this, args);
+		this.lineWidth /= pixelRatio;
+	 })(prototype.stroke);
+
 	// Text
 	//
 	prototype.fillText = (function(_super) {
