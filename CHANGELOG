@@ -1,3 +1,6 @@
+= 1.0.8
+  * Fix issue with lineWidth handling in stroke (#14)
+
 = 1.0.7
   * Better fix for pixel ratio being 1
 
