@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>HiDPI Canvas Polyfill by jondavidjohn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>HiDPI Canvas Polyfill</h1>
+        <p>A JavaScript drop-in module to polyfill consistent and automatic HiDPI Canvas support.</p>
+
+        <p class="view"><a href="https://github.com/jondavidjohn/hidpi-canvas-polyfill">View the Project on GitHub <small>jondavidjohn/hidpi-canvas-polyfill</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jondavidjohn/hidpi-canvas-polyfill/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jondavidjohn/hidpi-canvas-polyfill/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jondavidjohn/hidpi-canvas-polyfill">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="hidpi-canvas-polyfill" class="anchor" href="#hidpi-canvas-polyfill"><span class="octicon octicon-link"></span></a>HiDPI Canvas Polyfill</h1>
+
+<p>This is a drop-in polyfill to scale canvas appropriately to maintain sharpness
+in browsers that currently do not provide the appropriately scaled backing
+store to do this automatically.</p>
+
+<p>As of this writing Safari is the only browser that accounts for this.</p>
+
+<p>The goal of this drop-in is to make this behavior consistent accross all browsers,
+without having to modify any of your canvas code.</p>
+
+<h2>
+<a name="scope" class="anchor" href="#scope"><span class="octicon octicon-link"></span></a>Scope</h2>
+
+<p>Currently this plugin handles most general cross browser drawing functions, but
+feel free to send Pull Requests as you find functions you need supported.</p>
+
+<p>If the function simply needs all or some of it's arguments multiplied by the ratio,
+it should simply require you to add it to the <code>ratioArgs</code> object, following the proper
+pattern.</p>
+
+<p>It currently leaves images alone, so to retinize images on your canvas, simply
+duplicate the getPixelRatio function in your code and divide your image dimensions
+by the provided ratio.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">getPixelRatio</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">backingStore</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">backingStorePixelRatio</span> <span class="o">||</span>
+          <span class="nx">context</span><span class="p">.</span><span class="nx">webkitBackingStorePixelRatio</span> <span class="o">||</span>
+          <span class="nx">context</span><span class="p">.</span><span class="nx">mozBackingStorePixelRatio</span> <span class="o">||</span>
+          <span class="nx">context</span><span class="p">.</span><span class="nx">msBackingStorePixelRatio</span> <span class="o">||</span>
+          <span class="nx">context</span><span class="p">.</span><span class="nx">oBackingStorePixelRatio</span> <span class="o">||</span>
+          <span class="nx">context</span><span class="p">.</span><span class="nx">backingStorePixelRatio</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">devicePixelRatio</span> <span class="o">||</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nx">backingStore</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To use this module, simply include it before any of your canvas code</p>
+
+<div class="highlight highlight-html"><pre>  ...
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">".../dist/hidpi-canvas.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">".../your-canvas-stuff.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  ...
+</pre></div>
+
+<h3>
+<a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a>Bower</h3>
+
+<p>This module is also installable via <a href="http://bower.io/">bower</a></p>
+
+<pre><code>bower install hidpi-canvas
+</code></pre>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>More Complete context function coverage</li>
+<li>Figure out how to write tests for this type of thing</li>
+</ul><h2>
+<a name="development" class="anchor" href="#development"><span class="octicon octicon-link"></span></a>Development</h2>
+
+<p>See <a href="https://github.com/jondavidjohn/hidpi-canvas-polyfill/blob/develop/CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jondavidjohn">jondavidjohn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-53248017-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
