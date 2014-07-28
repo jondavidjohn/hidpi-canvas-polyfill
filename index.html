@@ -12,6 +12,47 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
+  <script>
+    function drawTheThings(canvas_id) {
+      var canvas = document.getElementById(canvas_id),
+        ctx = canvas.getContext('2d');
+
+      // Triangle
+      ctx.beginPath();
+      ctx.moveTo(80,125);
+      ctx.lineTo(160,125);
+      ctx.lineTo(120,175);
+      ctx.fill();
+      ctx.closePath();
+
+      // Arcs
+      ctx.beginPath();
+      for(var i=0;i<4;i++){
+        for(var j=0;j<3;j++){
+          var x              = 225+j*50;              // x coordinate
+          var y              = 25+i*50;              // y coordinate
+          var radius         = 20;                    // Arc radius
+          var startAngle     = 0;                     // Starting point on circle
+          var endAngle       = Math.PI+(Math.PI*j)/2; // End point on circle
+          var anticlockwise  = i%2==0 ? false : true; // clockwise or anticlockwise
+
+          ctx.beginPath();
+          ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+          if (i>1){
+            ctx.fill();
+          } else {
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.closePath();
+
+      ctx.font="20px Arial";
+      ctx.fillText("Am I Sharp?",10,30);
+      ctx.fillText("Am I Sharp Also?",10,100);
+    }
+  </script>
   <body>
     <div class="wrapper">
       <header>
@@ -41,6 +82,25 @@ store to do this automatically.</p>
 
 <p>The goal of this drop-in is to make this behavior consistent accross all browsers,
 without having to modify any of your canvas code.</p>
+
+<h2>Example</h2>
+
+<p>Clearly the difference will only be seen on a Retina / HiDPI display</p>
+
+<h3>Before</h3>
+
+<canvas id="canvas-before" height="200" width="500"></canvas>
+<script>
+  drawTheThings('canvas-before');
+</script>
+
+<h3>After</h3>
+
+<canvas id="canvas-after" height="200" width="500"></canvas>
+<script src="https://cdn.rawgit.com/jondavidjohn/hidpi-canvas-polyfill/1.0.9/dist/hidpi-canvas.min.js"></script>
+<script>
+  drawTheThings('canvas-after');
+</script>
 
 <h2>
 <a name="scope" class="anchor" href="#scope"><span class="octicon octicon-link"></span></a>Scope</h2>
