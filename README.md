@@ -14,7 +14,7 @@ without having to modify any of your canvas code.
 Currently this plugin handles most general cross browser drawing functions, but
 feel free to send Pull Requests as you find functions you need supported.
 
-If the function simply needs all or some of it's arguments multiplied by the ratio,
+If the function simply needs all or some of its arguments multiplied by the ratio,
 it should simply require you to add it to the `ratioArgs` object, following the proper
 pattern.
 
