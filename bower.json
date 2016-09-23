@@ -1,6 +1,6 @@
 {
   "name": "hidpi-canvas",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "homepage": "https://github.com/jondavidjohn/hidpi-canvas-polyfill",
   "authors": [
     "Jonathan Johnson <jon@crowdfavorite.com>"
@@ -13,7 +13,7 @@
     "polyfill"
   ],
   "main": "dist/hidpi-canvas.js",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "ignore": [
     "**/.*",
     "node_modules",

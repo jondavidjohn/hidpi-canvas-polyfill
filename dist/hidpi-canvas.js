@@ -1,10 +1,10 @@
 /**
- * HiDPI Canvas Polyfill (1.0.9)
+ * HiDPI Canvas Polyfill (1.0.10)
  *
  * Author: Jonathan D. Johnson (http://jondavidjohn.com)
  * Homepage: https://github.com/jondavidjohn/hidpi-canvas-polyfill
  * Issue Tracker: https://github.com/jondavidjohn/hidpi-canvas-polyfill/issues
- * License: Apache 2.0
+ * License: Apache-2.0
 */
 (function(prototype) {
 
