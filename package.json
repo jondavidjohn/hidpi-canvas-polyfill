@@ -23,6 +23,8 @@
   },
   "scripts": {
     "test": "grunt",
-    "prepublish": "grunt dist"
+    "watch": "grunt watch",
+    "build": "grunt dist",
+    "prepublish": "npm run build"
   }
 }
