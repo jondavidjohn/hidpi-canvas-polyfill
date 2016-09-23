@@ -1,5 +1,7 @@
 # HiDPI Canvas Polyfill
 
+[![Build Status](https://travis-ci.org/jondavidjohn/hidpi-canvas-polyfill.svg?branch=master)](https://travis-ci.org/jondavidjohn/hidpi-canvas-polyfill)
+
 This is a drop-in polyfill to scale canvas appropriately to maintain sharpness
 in browsers that currently do not provide the appropriately scaled backing
 store to do this automatically.
