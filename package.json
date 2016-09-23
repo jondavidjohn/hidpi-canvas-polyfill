@@ -2,7 +2,7 @@
   "name": "hidpi-canvas",
   "description": "A JavaScript drop-in module to polyfill consistent and automatic HiDPI Canvas support.",
   "version": "1.0.9",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/jondavidjohn/hidpi-canvas-polyfill",
   "bugs": "https://github.com/jondavidjohn/hidpi-canvas-polyfill/issues",
   "repository": {
