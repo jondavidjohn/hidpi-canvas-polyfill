@@ -5,7 +5,7 @@ Yay, you're interested in helping this thing suck less.  Good for you!
 Some things you should be familiar with before getting started
 
   - Unit testing (with [QUnit](http://qunitjs.com))
-  - [Grunt](http://gruntjs.org) (available via `npm install -g grunt-cli`)
+  - [Grunt](http://gruntjs.org)
   - [Node/NPM](https://npmjs.org/) (available via homebrew)
 
 ## Project Layout
@@ -17,15 +17,15 @@ Some things you should be familiar with before getting started
 
 ## Development
 
-Once you have NPM and Grunt installed, clone the repository (with `--recursive` to also clone all submodules) and install all dependencies
+Once you have npm installed, clone the repository (with `--recursive` to also clone all submodules) and install all dependencies
 
     git clone git@.....hidpi-canvas-polyfill.git --recursive
     cd hidpi-canvas-polyfill
     npm install
 
-Then to build a distribution run this grunt task
+Then to build a distribution run
 
-    grunt dist
+    npm run build
 
 This will generate the compiled (and minified) sourc in your `dist/` directory
 along with a distributable zip archive.
@@ -35,7 +35,7 @@ need to re-run this command.
 
 You can also use
 
-    grunt watch
+    npm run watch
 
 to automatically reconcat the unminified file everytime you
 change any of the `src/**/*.js` files.
@@ -49,7 +49,7 @@ sure to organize and produce tests that fit the patterns present.
 
 ### Running Tests
 
-    grunt test
+    npm test
 
 ## On Contribution
 

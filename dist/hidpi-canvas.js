@@ -1,15 +1,17 @@
 /**
- * HiDPI Canvas Polyfill (1.0.9)
+ * HiDPI Canvas Polyfill (1.0.10)
  *
  * Author: Jonathan D. Johnson (http://jondavidjohn.com)
  * Homepage: https://github.com/jondavidjohn/hidpi-canvas-polyfill
  * Issue Tracker: https://github.com/jondavidjohn/hidpi-canvas-polyfill/issues
- * License: Apache 2.0
+ * License: Apache-2.0
 */
 (function(prototype) {
 
-	var pixelRatio = (function(context) {
-			var backingStore = context.backingStorePixelRatio ||
+	var pixelRatio = (function() {
+			var canvas = document.createElement('canvas'),
+					context = canvas.getContext('2d'),
+					backingStore = context.backingStorePixelRatio ||
 						context.webkitBackingStorePixelRatio ||
 						context.mozBackingStorePixelRatio ||
 						context.msBackingStorePixelRatio ||
@@ -17,7 +19,7 @@
 						context.backingStorePixelRatio || 1;
 
 			return (window.devicePixelRatio || 1) / backingStore;
-		})(prototype),
+		})(),
 
 		forEach = function(obj, func) {
 			for (var p in obj) {
