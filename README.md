@@ -1,3 +1,16 @@
+---
+<p align="center">
+  <h3 align="center">Hi! Do you use webpack?</h3>
+</p>
+<p align="center">
+  I'm currently working on a product that will help you keep track of the assets you're producing and their delivery performance concerns.  Along with reporting those stats right to your GitHub pull requests.
+</p>
+<p align="center">
+  Check it out at <a href="https://packtracker.io">packtracker.io</a> and <a href="https://app.packtracker.io">request early access</a> if you want to help me kick the tires!
+</p>
+
+---
+
 # HiDPI Canvas Polyfill
 
 [![Build Status](https://travis-ci.org/jondavidjohn/hidpi-canvas-polyfill.svg?branch=master)](https://travis-ci.org/jondavidjohn/hidpi-canvas-polyfill)
