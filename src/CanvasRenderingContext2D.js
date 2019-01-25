@@ -123,4 +123,13 @@
 			);
 		};
 	})(prototype.strokeText);
+
+	// drawImage
+	prototype.drawImage = (function(_super) {
+		return function() {
+			this.scale(pixelRatio, pixelRatio);
+			_super.apply(this, arguments);
+			this.scale(1/pixelRatio, 1/pixelRatio);
+		};
+	})(prototype.drawImage);
 })(CanvasRenderingContext2D.prototype);
