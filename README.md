@@ -21,7 +21,7 @@ store to do this automatically.
 
 As of this writing Safari is the only browser that accounts for this.
 
-The goal of this drop-in is to make this behavior consistent accross all browsers,
+The goal of this drop-in is to make this behavior consistent across all browsers,
 without having to modify any of your canvas code.
 
 ## Scope
